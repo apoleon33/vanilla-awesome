@@ -1,5 +1,7 @@
-name: Custom Vanilla Desktop # Replace this name with your image name
-id: custom # Replace this ID with your image ID
+# vib
+base: ghcr.io/vanilla-os/nvidia:main
+name: Vanilla Calla
+id: vanilla-calla
 stages:
 - id: build
   base: ghcr.io/vanilla-os/desktop:main # Optionally, Replace this image URL with a different one i.e. nvidia:main, etc
@@ -22,17 +24,6 @@ stages:
     - apt-get update
 
   # Put your custom actions behind this comment
-
-  - name: example-packages # Sample module using the built-in Apt module to install packages
-    type: apt
-    source:
-      packages:
-      - vim
-
-  - name: example-commands # Sample module demonstrating the Shell module with custom commands
-    type: shell
-    commands:
-    - echo Example output
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
